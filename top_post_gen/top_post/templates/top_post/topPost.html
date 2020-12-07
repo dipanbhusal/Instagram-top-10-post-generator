@@ -1,0 +1,32 @@
+{% load 'base.html' %}
+{%block content%}
+<div>
+    <h5>Account name: {{accountData.username}} </h5>
+    <h5>Followers: {{accountData.no_of_followers}}</h5>
+    <h5>Following: {{accountData.no_of_following}}</h5>
+    <h5>No of Post: {{accountData.no_of_post}}</h5>
+</div>
+<h4 class="text-center">Here are Top 10 Post</h4> <br>
+<div class="row">
+    {% for data in postData.values %}
+    <div class="col-md-4 text-center mb-3">
+
+        <div class="card">
+            <img src="{{data.post_image_url}}" class="card-img-top img-fluid imgCard">
+            <button class="btn btn-primary btn-sm" id="textOnImage">{{data.post_like}}</button>
+            <div class="class-body">
+                <h5 class="card-text"><span>No Of Like: {{data.post_like}} </span>|<span class="card-text"> No Of
+                        Comment: {{data.post_comment}}</span> </h5>
+                <h5>
+                    <p class="card-text "><a href="{{data.post_url}}">Goto Post </a> | <a
+                            href="{{data.post_image_url}}">Download Image</a> </p>
+                </h5>
+            </div>
+        </div>
+        </a>
+    </div>
+    <br>
+    {% endfor %}
+
+</div>
+{%endblock content%}
